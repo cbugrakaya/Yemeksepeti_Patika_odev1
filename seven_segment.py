@@ -1,27 +1,28 @@
 def seven_segment_display():
-    """
-    """
-    # rows = 7
-    # columns = 5 
-    
-    # num = input("Enter the number")
 
-    # #abcdefg
-    # numbers = {0: "1111110" , 1: "0110000", 2: "1101101", 3: "1111001", 4:"0110011", 5:"1011011", 6:"1011111", 7:"1110000", 8:"1111111", 9:"1111011"}
+    number = int(input("Enter the number : "))
 
-    # bin_num = numbers[num]
+    if  10 > number > 0:
+        hex_dict = {1:0x7E, 2:0x6D, 3:0x79, 4:0x33,5:0x5B, 6:0x5F, 7:0x70, 8:0x7F, 9:0x7B}
 
-    # for i in rows:
-    #     for j in columns:
-    #         
+        binary_display =  bin(hex_dict[number])[2:].zfill(7)
+
+        a,b,c,d,e,f,g = map(int,list(binary_display))
+
+        print(("*" if a else " ")*8)
+        print("*" if f else " ", " "*4,"*" if b else " " )
+        print("*" if f else " ", " "*4,"*" if b else " " )
+        print(("*" if f else " ")*8)
+        print("*" if e else " ", " "*4,"*" if c else " " )
+        print(("*" if d else " ")*8)
+    else:
+        raise  Exception("This number cannot show in seven segments. Number must be between 0-10(Not included) ")
+
+  
 
 
-    pass
-    #    a
-    #f       b
-    #    g
-    #e       c
-    #    d 
+
+seven_segment_display()
 
 
 
